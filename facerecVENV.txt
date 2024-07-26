@@ -1,0 +1,480 @@
+Install - https://visualstudio.microsoft.com/downloads/
+		pip install face-recognition
+		pip install opencv-python-headless
+pip install mysql-connector-python
+		conda install mysql-connector-python
+conda install matplotlib
+pip install flask
+pip install flask-socketio
+pip install Flask-SQLAlchemy==3.0.2
+pip install Flask-Migrate==3.1.0
+
+(base) C:\Users\shekh>conda create -n facerec
+Collecting package metadata (current_repodata.json): done
+Solving environment: done
+
+## Package Plan ##
+
+  environment location: C:\Users\shekh\anaconda3\envs\facerec
+
+
+
+Proceed ([y]/n)? y
+
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+#
+# To activate this environment, use
+#
+#     $ conda activate facerec
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+
+Retrieving notices: ...working... done
+
+(base) C:\Users\shekh>conda activate facerec
+
+(facerec) C:\Users\shekh>conda install pandas
+Collecting package metadata (current_repodata.json): done
+Solving environment: done
+
+## Package Plan ##
+
+  environment location: C:\Users\shekh\anaconda3\envs\facerec
+
+  added / updated specs:
+    - pandas
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    bottleneck-1.3.5           |  py312he558020_0         120 KB
+    ca-certificates-2023.12.12 |       haa95532_0         127 KB
+    expat-2.5.0                |       hd77b12b_0         225 KB
+    mkl-2023.1.0               |   h6b88ed4_46358       155.9 MB
+    mkl-service-2.4.0          |  py312h2bbff1b_1          55 KB
+    mkl_fft-1.3.8              |  py312h2bbff1b_0         160 KB
+    mkl_random-1.2.4           |  py312h59b6b97_0         196 KB
+    numexpr-2.8.7              |  py312h96b7d27_0         144 KB
+    numpy-1.26.3               |  py312hfd52020_0          11 KB
+    numpy-base-1.26.3          |  py312h4dde369_0         6.6 MB
+    openssl-3.0.12             |       h2bbff1b_0         7.4 MB
+    pandas-2.1.4               |  py312hc7c4135_0        13.2 MB
+    pip-23.3.1                 |  py312haa95532_0         2.9 MB
+    python-3.12.1              |       h1d929f7_0        16.2 MB
+    pytz-2023.3.post1          |  py312haa95532_0         199 KB
+    setuptools-68.2.2          |  py312haa95532_0         1.2 MB
+    tzdata-2023d               |       h04d1e81_0         117 KB
+    wheel-0.41.2               |  py312haa95532_0         150 KB
+    xz-5.4.5                   |       h8cc25b3_0         593 KB
+    ------------------------------------------------------------
+                                           Total:       205.5 MB
+
+The following NEW packages will be INSTALLED:
+
+  blas               pkgs/main/win-64::blas-1.0-mkl None
+  bottleneck         pkgs/main/win-64::bottleneck-1.3.5-py312he558020_0 None
+  bzip2              pkgs/main/win-64::bzip2-1.0.8-he774522_0 None
+  ca-certificates    pkgs/main/win-64::ca-certificates-2023.12.12-haa95532_0 None
+  expat              pkgs/main/win-64::expat-2.5.0-hd77b12b_0 None
+  intel-openmp       pkgs/main/win-64::intel-openmp-2023.1.0-h59b6b97_46320 None
+  libffi             pkgs/main/win-64::libffi-3.4.4-hd77b12b_0 None
+  mkl                pkgs/main/win-64::mkl-2023.1.0-h6b88ed4_46358 None
+  mkl-service        pkgs/main/win-64::mkl-service-2.4.0-py312h2bbff1b_1 None
+  mkl_fft            pkgs/main/win-64::mkl_fft-1.3.8-py312h2bbff1b_0 None
+  mkl_random         pkgs/main/win-64::mkl_random-1.2.4-py312h59b6b97_0 None
+  numexpr            pkgs/main/win-64::numexpr-2.8.7-py312h96b7d27_0 None
+  numpy              pkgs/main/win-64::numpy-1.26.3-py312hfd52020_0 None
+  numpy-base         pkgs/main/win-64::numpy-base-1.26.3-py312h4dde369_0 None
+  openssl            pkgs/main/win-64::openssl-3.0.12-h2bbff1b_0 None
+  pandas             pkgs/main/win-64::pandas-2.1.4-py312hc7c4135_0 None
+  pip                pkgs/main/win-64::pip-23.3.1-py312haa95532_0 None
+  python             pkgs/main/win-64::python-3.12.1-h1d929f7_0 None
+  python-dateutil    pkgs/main/noarch::python-dateutil-2.8.2-pyhd3eb1b0_0 None
+  python-tzdata      pkgs/main/noarch::python-tzdata-2023.3-pyhd3eb1b0_0 None
+  pytz               pkgs/main/win-64::pytz-2023.3.post1-py312haa95532_0 None
+  setuptools         pkgs/main/win-64::setuptools-68.2.2-py312haa95532_0 None
+  six                pkgs/main/noarch::six-1.16.0-pyhd3eb1b0_1 None
+  sqlite             pkgs/main/win-64::sqlite-3.41.2-h2bbff1b_0 None
+  tbb                pkgs/main/win-64::tbb-2021.8.0-h59b6b97_0 None
+  tk                 pkgs/main/win-64::tk-8.6.12-h2bbff1b_0 None
+  tzdata             pkgs/main/noarch::tzdata-2023d-h04d1e81_0 None
+  vc                 pkgs/main/win-64::vc-14.2-h21ff451_1 None
+  vs2015_runtime     pkgs/main/win-64::vs2015_runtime-14.27.29016-h5e58377_2 None
+  wheel              pkgs/main/win-64::wheel-0.41.2-py312haa95532_0 None
+  xz                 pkgs/main/win-64::xz-5.4.5-h8cc25b3_0 None
+  zlib               pkgs/main/win-64::zlib-1.2.13-h8cc25b3_0 None
+
+
+Proceed ([y]/n)? y
+
+
+Downloading and Extracting Packages
+mkl-2023.1.0         | 155.9 MB  | ############################################################################ | 100%
+pip-23.3.1           | 2.9 MB    | ############################################################################ | 100%
+xz-5.4.5             | 593 KB    | ############################################################################ | 100%
+ca-certificates-2023 | 127 KB    | ############################################################################ | 100%
+mkl-service-2.4.0    | 55 KB     | ############################################################################ | 100%
+wheel-0.41.2         | 150 KB    | ############################################################################ | 100%
+pytz-2023.3.post1    | 199 KB    | ############################################################################ | 100%
+python-3.12.1        | 16.2 MB   | ############################################################################ | 100%
+numpy-1.26.3         | 11 KB     | ############################################################################ | 100%
+mkl_fft-1.3.8        | 160 KB    | ############################################################################ | 100%
+bottleneck-1.3.5     | 120 KB    | ############################################################################ | 100%
+numexpr-2.8.7        | 144 KB    | ############################################################################ | 100%
+pandas-2.1.4         | 13.2 MB   | ############################################################################ | 100%
+tzdata-2023d         | 117 KB    | ############################################################################ | 100%
+mkl_random-1.2.4     | 196 KB    | ############################################################################ | 100%
+setuptools-68.2.2    | 1.2 MB    | ############################################################################ | 100%
+numpy-base-1.26.3    | 6.6 MB    | ############################################################################ | 100%
+expat-2.5.0          | 225 KB    | ############################################################################ | 100%
+openssl-3.0.12       | 7.4 MB    | ############################################################################ | 100%
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+Retrieving notices: ...working... done
+
+(facerec) C:\Users\shekh>conda install numpy
+Collecting package metadata (current_repodata.json): done
+Solving environment: done
+
+# All requested packages already installed.
+
+Retrieving notices: ...working... done
+
+(facerec) C:\Users\shekh>conda install opencv-python
+Collecting package metadata (current_repodata.json): done
+Solving environment: failed with initial frozen solve. Retrying with flexible solve.
+Collecting package metadata (repodata.json): done
+Solving environment: failed with initial frozen solve. Retrying with flexible solve.
+
+PackagesNotFoundError: The following packages are not available from current channels:
+
+  - opencv-python
+
+Current channels:
+
+  - https://repo.anaconda.com/pkgs/main/win-64
+  - https://repo.anaconda.com/pkgs/main/noarch
+  - https://repo.anaconda.com/pkgs/r/win-64
+  - https://repo.anaconda.com/pkgs/r/noarch
+  - https://repo.anaconda.com/pkgs/msys2/win-64
+  - https://repo.anaconda.com/pkgs/msys2/noarch
+
+To search for alternate channels that may provide the conda package you're
+looking for, navigate to
+
+    https://anaconda.org
+
+and use the search bar at the top of the page.
+
+
+
+(facerec) C:\Users\shekh>conda install opencv
+Collecting package metadata (current_repodata.json): done
+Solving environment: done
+
+## Package Plan ##
+
+  environment location: C:\Users\shekh\anaconda3\envs\facerec
+
+  added / updated specs:
+    - opencv
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    eigen-3.4.0                |       h59b6b97_0         1.1 MB
+    ffmpeg-4.2.2               |       he774522_0        17.6 MB
+    libdeflate-1.17            |       h2bbff1b_1         153 KB
+    libpq-12.17                |       h906ac69_0         3.2 MB
+    libtiff-4.5.1              |       hd77b12b_0         1.1 MB
+    libwebp-1.3.2              |       hbc33d0d_0          73 KB
+    libwebp-base-1.3.2         |       h2bbff1b_0         306 KB
+    libxml2-2.10.4             |       h0ad7f3c_1         2.8 MB
+    opencv-4.6.0               |  py312h14b9924_5        24.3 MB
+    qt-main-5.15.2             |       h879a1e9_9        59.4 MB
+    qt-webengine-5.15.9        |       h5bd16bc_7        58.1 MB
+    qtwebkit-5.212             |       h2bbfb41_5        11.6 MB
+    ------------------------------------------------------------
+                                           Total:       179.8 MB
+
+The following NEW packages will be INSTALLED:
+
+  eigen              pkgs/main/win-64::eigen-3.4.0-h59b6b97_0 None
+  ffmpeg             pkgs/main/win-64::ffmpeg-4.2.2-he774522_0 None
+  freetype           pkgs/main/win-64::freetype-2.12.1-ha860e81_0 None
+  giflib             pkgs/main/win-64::giflib-5.2.1-h8cc25b3_3 None
+  glib               pkgs/main/win-64::glib-2.69.1-h5dc1a3c_2 None
+  gst-plugins-base   pkgs/main/win-64::gst-plugins-base-1.18.5-h9e645db_0 None
+  gstreamer          pkgs/main/win-64::gstreamer-1.18.5-hd78058f_0 None
+  hdf5               pkgs/main/win-64::hdf5-1.12.1-h51c971a_3 None
+  icc_rt             pkgs/main/win-64::icc_rt-2022.1.0-h6049295_2 None
+  icu                pkgs/main/win-64::icu-58.2-ha925a31_3 None
+  jpeg               pkgs/main/win-64::jpeg-9e-h2bbff1b_1 None
+  krb5               pkgs/main/win-64::krb5-1.20.1-h5b6d351_0 None
+  lerc               pkgs/main/win-64::lerc-3.0-hd77b12b_0 None
+  libclang           pkgs/main/win-64::libclang-14.0.6-default_hb5a9fac_1 None
+  libclang13         pkgs/main/win-64::libclang13-14.0.6-default_h8e68704_1 None
+  libdeflate         pkgs/main/win-64::libdeflate-1.17-h2bbff1b_1 None
+  libiconv           pkgs/main/win-64::libiconv-1.16-h2bbff1b_2 None
+  libogg             pkgs/main/win-64::libogg-1.3.5-h2bbff1b_1 None
+  libpng             pkgs/main/win-64::libpng-1.6.39-h8cc25b3_0 None
+  libpq              pkgs/main/win-64::libpq-12.17-h906ac69_0 None
+  libprotobuf        pkgs/main/win-64::libprotobuf-3.20.3-h23ce68f_0 None
+  libtiff            pkgs/main/win-64::libtiff-4.5.1-hd77b12b_0 None
+  libvorbis          pkgs/main/win-64::libvorbis-1.3.7-he774522_0 None
+  libwebp            pkgs/main/win-64::libwebp-1.3.2-hbc33d0d_0 None
+  libwebp-base       pkgs/main/win-64::libwebp-base-1.3.2-h2bbff1b_0 None
+  libxml2            pkgs/main/win-64::libxml2-2.10.4-h0ad7f3c_1 None
+  libxslt            pkgs/main/win-64::libxslt-1.1.37-h2bbff1b_1 None
+  lz4-c              pkgs/main/win-64::lz4-c-1.9.4-h2bbff1b_0 None
+  opencv             pkgs/main/win-64::opencv-4.6.0-py312h14b9924_5 None
+  pcre               pkgs/main/win-64::pcre-8.45-hd77b12b_0 None
+  qt-main            pkgs/main/win-64::qt-main-5.15.2-h879a1e9_9 None
+  qt-webengine       pkgs/main/win-64::qt-webengine-5.15.9-h5bd16bc_7 None
+  qtwebkit           pkgs/main/win-64::qtwebkit-5.212-h2bbfb41_5 None
+  zstd               pkgs/main/win-64::zstd-1.5.5-hd43e919_0 None
+
+
+Proceed ([y]/n)? y
+
+
+Downloading and Extracting Packages
+libpq-12.17          | 3.2 MB    | ############################################################################ | 100%
+libwebp-1.3.2        | 73 KB     | ############################################################################ | 100%
+qt-webengine-5.15.9  | 58.1 MB   | ############################################################################ | 100%
+libtiff-4.5.1        | 1.1 MB    | ############################################################################ | 100%
+qtwebkit-5.212       | 11.6 MB   | ############################################################################ | 100%
+libdeflate-1.17      | 153 KB    | ############################################################################ | 100%
+libxml2-2.10.4       | 2.8 MB    | ############################################################################ | 100%
+libwebp-base-1.3.2   | 306 KB    | ############################################################################ | 100%
+opencv-4.6.0         | 24.3 MB   | ############################################################################ | 100%
+ffmpeg-4.2.2         | 17.6 MB   | ############################################################################ | 100%
+qt-main-5.15.2       | 59.4 MB   | ############################################################################ | 100%
+eigen-3.4.0          | 1.1 MB    | ############################################################################ | 100%
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+Retrieving notices: ...working... done
+
+(facerec) C:\Users\shekh>conda install cv2
+Collecting package metadata (current_repodata.json): done
+Solving environment: failed with initial frozen solve. Retrying with flexible solve.
+Collecting package metadata (repodata.json): done
+Solving environment: failed with initial frozen solve. Retrying with flexible solve.
+
+PackagesNotFoundError: The following packages are not available from current channels:
+
+  - cv2
+
+Current channels:
+
+  - https://repo.anaconda.com/pkgs/main/win-64
+  - https://repo.anaconda.com/pkgs/main/noarch
+  - https://repo.anaconda.com/pkgs/r/win-64
+  - https://repo.anaconda.com/pkgs/r/noarch
+  - https://repo.anaconda.com/pkgs/msys2/win-64
+  - https://repo.anaconda.com/pkgs/msys2/noarch
+
+To search for alternate channels that may provide the conda package you're
+looking for, navigate to
+
+    https://anaconda.org
+
+and use the search bar at the top of the page.
+
+
+
+(facerec) C:\Users\shekh>conda install pillow
+Collecting package metadata (current_repodata.json): done
+Solving environment: done
+
+## Package Plan ##
+
+  environment location: C:\Users\shekh\anaconda3\envs\facerec
+
+  added / updated specs:
+    - pillow
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    pillow-10.0.1              |  py312h045eedc_0         847 KB
+    ------------------------------------------------------------
+                                           Total:         847 KB
+
+The following NEW packages will be INSTALLED:
+
+  openjpeg           pkgs/main/win-64::openjpeg-2.4.0-h4fc8c34_0 None
+  pillow             pkgs/main/win-64::pillow-10.0.1-py312h045eedc_0 None
+
+
+Proceed ([y]/n)? y
+
+
+Downloading and Extracting Packages
+pillow-10.0.1        | 847 KB    | ############################################################################ | 100%
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+Retrieving notices: ...working... done
+
+(facerec) C:\Users\shekh>conda install face-recognition
+Collecting package metadata (current_repodata.json): done
+Solving environment: failed with initial frozen solve. Retrying with flexible solve.
+Collecting package metadata (repodata.json): done
+Solving environment: failed with initial frozen solve. Retrying with flexible solve.
+
+PackagesNotFoundError: The following packages are not available from current channels:
+
+  - face-recognition
+
+Current channels:
+
+  - https://repo.anaconda.com/pkgs/main/win-64
+  - https://repo.anaconda.com/pkgs/main/noarch
+  - https://repo.anaconda.com/pkgs/r/win-64
+  - https://repo.anaconda.com/pkgs/r/noarch
+  - https://repo.anaconda.com/pkgs/msys2/win-64
+  - https://repo.anaconda.com/pkgs/msys2/noarch
+
+To search for alternate channels that may provide the conda package you're
+looking for, navigate to
+
+    https://anaconda.org
+
+and use the search bar at the top of the page.
+
+
+
+(facerec) C:\Users\shekh>pip install face-recognition
+Collecting face-recognition
+  Downloading face_recognition-1.3.0-py2.py3-none-any.whl (15 kB)
+Collecting face-recognition-models>=0.3.0 (from face-recognition)
+  Downloading face_recognition_models-0.3.0.tar.gz (100.1 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100.1/100.1 MB 4.1 MB/s eta 0:00:00
+  Preparing metadata (setup.py) ... done
+Collecting Click>=6.0 (from face-recognition)
+  Downloading click-8.1.7-py3-none-any.whl.metadata (3.0 kB)
+Collecting dlib>=19.7 (from face-recognition)
+  Downloading dlib-19.24.2.tar.gz (11.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 11.8/11.8 MB 4.8 MB/s eta 0:00:00
+  Installing build dependencies ... done
+  Getting requirements to build wheel ... done
+  Preparing metadata (pyproject.toml) ... done
+Requirement already satisfied: numpy in c:\users\shekh\anaconda3\envs\facerec\lib\site-packages (from face-recognition) (1.26.3)
+Requirement already satisfied: Pillow in c:\users\shekh\anaconda3\envs\facerec\lib\site-packages (from face-recognition) (10.0.1)
+Collecting colorama (from Click>=6.0->face-recognition)
+  Downloading colorama-0.4.6-py2.py3-none-any.whl (25 kB)
+Downloading click-8.1.7-py3-none-any.whl (97 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 97.9/97.9 kB 1.9 MB/s eta 0:00:00
+Building wheels for collected packages: dlib, face-recognition-models
+  Building wheel for dlib (pyproject.toml) ... error
+  error: subprocess-exited-with-error
+
+  × Building wheel for dlib (pyproject.toml) did not run successfully.
+  │ exit code: 1
+  ╰─> [81 lines of output]
+      <string>:208: SyntaxWarning: invalid escape sequence '\('
+      <string>:209: SyntaxWarning: invalid escape sequence '\('
+      <string>:210: SyntaxWarning: invalid escape sequence '\('
+      running bdist_wheel
+      running build
+      running build_ext
+      <string>:125: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+      Building extension for Python 3.12.1 | packaged by Anaconda, Inc. | (main, Jan 19 2024, 15:44:08) [MSC v.1916 64 bit (AMD64)]
+      Invoking CMake setup: 'cmake C:\Users\shekh\AppData\Local\Temp\pip-install-evu559iu\dlib_68d8bd4768254a839d5e4cf46931aee4\tools\python -DCMAKE_LIBRARY_OUTPUT_DIRECTORY=C:\Users\shekh\AppData\Local\Temp\pip-install-evu559iu\dlib_68d8bd4768254a839d5e4cf46931aee4\build\lib.win-amd64-cpython-312 -DPYTHON_EXECUTABLE=C:\Users\shekh\anaconda3\envs\facerec\python.exe -DCMAKE_LIBRARY_OUTPUT_DIRECTORY_RELEASE=C:\Users\shekh\AppData\Local\Temp\pip-install-evu559iu\dlib_68d8bd4768254a839d5e4cf46931aee4\build\lib.win-amd64-cpython-312 -A x64'
+      -- Building for: NMake Makefiles
+      CMake Error at CMakeLists.txt:5 (message):
+
+
+
+        !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+        You must use Visual Studio to build a python extension on windows.  If you
+        are getting this error it means you have not installed Visual C++.  Note
+        that there are many flavors of Visual Studio, like Visual Studio for C#
+        development.  You need to install Visual Studio for C++.
+
+
+        !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+
+
+      -- Configuring incomplete, errors occurred!
+      Traceback (most recent call last):
+        File "C:\Users\shekh\anaconda3\envs\facerec\Lib\site-packages\pip\_vendor\pyproject_hooks\_in_process\_in_process.py", line 353, in <module>
+          main()
+        File "C:\Users\shekh\anaconda3\envs\facerec\Lib\site-packages\pip\_vendor\pyproject_hooks\_in_process\_in_process.py", line 335, in main
+          json_out['return_val'] = hook(**hook_input['kwargs'])
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Users\shekh\anaconda3\envs\facerec\Lib\site-packages\pip\_vendor\pyproject_hooks\_in_process\_in_process.py", line 251, in build_wheel
+          return _build_backend().build_wheel(wheel_directory, config_settings,
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Users\shekh\AppData\Local\Temp\pip-build-env-jwnjuooc\overlay\Lib\site-packages\setuptools\build_meta.py", line 404, in build_wheel
+          return self._build_with_temp_dir(
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Users\shekh\AppData\Local\Temp\pip-build-env-jwnjuooc\overlay\Lib\site-packages\setuptools\build_meta.py", line 389, in _build_with_temp_dir
+          self.run_setup()
+        File "C:\Users\shekh\AppData\Local\Temp\pip-build-env-jwnjuooc\overlay\Lib\site-packages\setuptools\build_meta.py", line 311, in run_setup
+          exec(code, locals())
+        File "<string>", line 218, in <module>
+        File "C:\Users\shekh\AppData\Local\Temp\pip-build-env-jwnjuooc\overlay\Lib\site-packages\setuptools\__init__.py", line 103, in setup
+          return distutils.core.setup(**attrs)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Users\shekh\AppData\Local\Temp\pip-build-env-jwnjuooc\overlay\Lib\site-packages\setuptools\_distutils\core.py", line 185, in setup
+          return run_commands(dist)
+                 ^^^^^^^^^^^^^^^^^^
+        File "C:\Users\shekh\AppData\Local\Temp\pip-build-env-jwnjuooc\overlay\Lib\site-packages\setuptools\_distutils\core.py", line 201, in run_commands
+          dist.run_commands()
+        File "C:\Users\shekh\AppData\Local\Temp\pip-build-env-jwnjuooc\overlay\Lib\site-packages\setuptools\_distutils\dist.py", line 969, in run_commands
+          self.run_command(cmd)
+        File "C:\Users\shekh\AppData\Local\Temp\pip-build-env-jwnjuooc\overlay\Lib\site-packages\setuptools\dist.py", line 963, in run_command
+          super().run_command(command)
+        File "C:\Users\shekh\AppData\Local\Temp\pip-build-env-jwnjuooc\overlay\Lib\site-packages\setuptools\_distutils\dist.py", line 988, in run_command
+          cmd_obj.run()
+        File "C:\Users\shekh\AppData\Local\Temp\pip-build-env-jwnjuooc\overlay\Lib\site-packages\wheel\bdist_wheel.py", line 368, in run
+          self.run_command("build")
+        File "C:\Users\shekh\AppData\Local\Temp\pip-build-env-jwnjuooc\overlay\Lib\site-packages\setuptools\_distutils\cmd.py", line 318, in run_command
+          self.distribution.run_command(command)
+        File "C:\Users\shekh\AppData\Local\Temp\pip-build-env-jwnjuooc\overlay\Lib\site-packages\setuptools\dist.py", line 963, in run_command
+          super().run_command(command)
+        File "C:\Users\shekh\AppData\Local\Temp\pip-build-env-jwnjuooc\overlay\Lib\site-packages\setuptools\_distutils\dist.py", line 988, in run_command
+          cmd_obj.run()
+        File "C:\Users\shekh\AppData\Local\Temp\pip-build-env-jwnjuooc\overlay\Lib\site-packages\setuptools\_distutils\command\build.py", line 131, in run
+          self.run_command(cmd_name)
+        File "C:\Users\shekh\AppData\Local\Temp\pip-build-env-jwnjuooc\overlay\Lib\site-packages\setuptools\_distutils\cmd.py", line 318, in run_command
+          self.distribution.run_command(command)
+        File "C:\Users\shekh\AppData\Local\Temp\pip-build-env-jwnjuooc\overlay\Lib\site-packages\setuptools\dist.py", line 963, in run_command
+          super().run_command(command)
+        File "C:\Users\shekh\AppData\Local\Temp\pip-build-env-jwnjuooc\overlay\Lib\site-packages\setuptools\_distutils\dist.py", line 988, in run_command
+          cmd_obj.run()
+        File "<string>", line 130, in run
+        File "<string>", line 167, in build_extension
+        File "C:\Users\shekh\anaconda3\envs\facerec\Lib\subprocess.py", line 413, in check_call
+          raise CalledProcessError(retcode, cmd)
+      subprocess.CalledProcessError: Command '['cmake', 'C:\\Users\\shekh\\AppData\\Local\\Temp\\pip-install-evu559iu\\dlib_68d8bd4768254a839d5e4cf46931aee4\\tools\\python', '-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=C:\\Users\\shekh\\AppData\\Local\\Temp\\pip-install-evu559iu\\dlib_68d8bd4768254a839d5e4cf46931aee4\\build\\lib.win-amd64-cpython-312', '-DPYTHON_EXECUTABLE=C:\\Users\\shekh\\anaconda3\\envs\\facerec\\python.exe', '-DCMAKE_LIBRARY_OUTPUT_DIRECTORY_RELEASE=C:\\Users\\shekh\\AppData\\Local\\Temp\\pip-install-evu559iu\\dlib_68d8bd4768254a839d5e4cf46931aee4\\build\\lib.win-amd64-cpython-312', '-A', 'x64']' returned non-zero exit status 1.
+      [end of output]
+
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+  ERROR: Failed building wheel for dlib
+  Building wheel for face-recognition-models (setup.py) ... done
+  Created wheel for face-recognition-models: filename=face_recognition_models-0.3.0-py2.py3-none-any.whl size=100566184 sha256=38b84c24016298990285b2d5727d53c77e2e5ebf2777bba9266c8630ecf671b5
+  Stored in directory: c:\users\shekh\appdata\local\pip\cache\wheels\8f\47\c8\f44c5aebb7507f7c8a2c0bd23151d732d0f0bd6884ad4ac635
+Successfully built face-recognition-models
+Failed to build dlib
+ERROR: Could not build wheels for dlib, which is required to install pyproject.toml-based projects
+
+(facerec) C:\Users\shekh>

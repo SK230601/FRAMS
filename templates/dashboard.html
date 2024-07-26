@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FRAMS</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/styles.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <div class="NAV-Details">
+        <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <H3><b>Face Recognition Based Attendance Management System</b></H3>
+                </ul>
+                <ul class="navbar-nav">
+                    <div>
+                        <p>User ID: {{ user_id }}</p>
+                        <p>Username: {{ user_name }}</p>
+                    </div>
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a href="{{ url_for('logout') }}" class="btn btn-danger">Logout</a>  
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ url_for('userclaim') }}" class="btn btn-success">Claim</a>
+                    </li>
+                    <li class="nav-item">
+                        <button id="checkInButton" class="btn btn-success">Check In</button>
+                    </li>
+                    <li class="nav-item">
+                        <button id="checkOutButton" class="btn  btn-warning">Check Out</button>
+                    </li>
+                </ul>
+            </div>
+        </nav> 
+    </div>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        document.getElementById("checkInButton").addEventListener("click", function() {
+            var xhr = new XMLHttpRequest();
+            var url = "/check_in?user_id={{ user_id }}&user_name={{ user_name }}";
+            xhr.open("POST", url, true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.send();
+            xhr.onload = function() {
+                if (xhr.status == 200) {
+                    alert(xhr.responseText);
+                }
+            };
+        });
+    </script>
+
+    <script>
+        document.getElementById("checkOutButton").addEventListener("click", function() {
+            var xhr = new XMLHttpRequest();
+            var url = "/check_out?user_id={{ user_id }}&user_name={{ user_name }}";
+            xhr.open("POST", url, true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.send();
+            xhr.onload = function() {
+                if (xhr.status == 200) {
+                    alert(xhr.responseText);
+                }
+            };
+        });
+    </script>
+
+    <div id="formContent">
+        <form action="{{ url_for('filter_records') }}" method="post">
+            <div class="fadeIn first">
+                <h2 class="my-5">Filter Records Between Dates</h2>
+            </div>
+
+            <div class="form-group row">
+                <label for="start_date" class="col-sm-4 col-form-label" style="color: black;">Start Date:</label>
+                <div class="col-sm-6">
+                    <input type="date" id="start_date" name="start_date" class="form-control" required>
+                </div>
+                <script>
+                    // Get the current date
+                    var today = new Date().toISOString().split('T')[0];
+                    // Set the minimum date for the input field
+                    document.getElementById("start_date").setAttribute("max", today);
+                </script>
+            </div>
+        
+            <div class="form-group row">
+                <label for="end_date" class="col-sm-4 col-form-label" style="color: black;">End Date:</label>
+                <div class="col-sm-6">
+                    <input type="date" id="end_date" name="end_date" class="form-control" required>
+                </div>
+                <script>
+                    // Get the current date
+                    var today = new Date().toISOString().split('T')[0];
+                    // Set the minimum date for the input field
+                    document.getElementById("end_date").setAttribute("max", today);
+                </script>
+            </div>
+
+            <input type="hidden" name="user_id" value="{{ user_id }}">
+            <input type="hidden" name="user_name" value="{{ user_name }}">
+        
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+    
+    <div>
+        <h3 style="padding: 10px; text-align: center;">All Attendance Records</h3>
+        <table class="table table-bordered table-striped" style="background-color: white;">
+            <thead class="thead-dark">
+                <tr>
+                    <th>User ID</th>
+                    <th>User Name</th>
+                    <th>Date</th>
+                    <th>Start Time</th>
+                    <th>End Time</th>
+                    <th>Working Hours</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for record in records %}
+                    <tr>
+                        <td>{{ record[0] }}</td>  <!-- User ID -->
+                        <td>{{ record[1] }}</td>  <!-- User Name -->
+                        <td>{{ record[2] }}</td>  <!-- Date -->
+                        <td>{{ record[3] }}</td>  <!-- Start Time -->
+                        <td>{{ record[4] }}</td>  <!-- End Time -->
+                        <td>{{ record[5] }}</td>  <!-- Working Hours -->
+                        <td>{{ record[6] }}</td>  <!-- Status -->
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

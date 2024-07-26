@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FRAMS</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+</head>
+<body>
+    <div class="NAV-Details">
+        <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <H3><b>Face Recognition Based Attendance Management System</b></H3>
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a href="{{ url_for('main_page') }}" class="btn btn-outline-info">Home</a>
+                    </li>
+                </ul>
+            </div>
+        </nav> 
+    </div>
+
+    <div id="formContent">
+
+        <h2 class="my-5">Add Image of New User</h2>
+
+        <form action="{{ url_for('addImage') }}" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" id="file" accept=".jpg, .jpeg, .png" required>
+            <br>
+            <input type="text" name="file_name" id="file_name" placeholder="Enter Image Name" value="{{ image_name }}" required>
+            <br>
+            <input type="submit" value="Upload">
+        </form>
+        <br>
+
+        <h2 class="my-5">Or Capture Image</h2>
+
+        <video id="video" width="320" height="240" autoplay></video>
+        <br>
+        <button id="capture">Capture</button>
+        <canvas id="canvas" style="display:none;"></canvas>
+        <form id="captureForm" action="{{ url_for('addImagebycam') }}" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="image" id="image">
+            <br>
+            <input type="text" name="image_name" id="image_name" placeholder="Enter Image Name" value="{{ image_name }}" required>
+            <br>
+            <input type="submit" value="Upload Captured Image">
+        </form>
+    </div>
+
+    <script src="../static/captureScript.js"></script>
+
+</div>
+</body>
+</html>

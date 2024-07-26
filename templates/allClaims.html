@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FRAMS</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/styles.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="NAV-Details">
+        <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <H3><b>Face Recognition Based Attendance Management System</b></H3>
+                </ul>
+                <ul class="navbar-nav">
+                    <div>
+                        <p>User ID: {{ user_id }}</p>
+                        <p>Username: {{ user_name }}</p>
+                    </div>
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a href="{{ url_for('admindash') }}" class="btn btn-outline-info" >Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ url_for('logout') }}" class="btn btn-danger">Logout</a>  
+                    </li>
+                </ul>
+            </div>
+        </nav> 
+    </div>
+
+    <div>
+        <h3 style="padding: 10px; text-align: center;">Approve/Reject Break Claims</h3>
+        <table class="table table-bordered table-striped" style="background-color: white;">
+            <thead class="thead-dark">
+                <tr>
+                    <th>User ID</th>
+                    <th>User Name</th>
+                    <th>Date</th>
+                    <th>Break Out</th>
+                    <th>Break In</th>
+                    <th>Break Hours</th>
+                    <th>Status</th>
+                    <th>Claim Reason</th>
+                    <th>Approve</th>
+                    <th>Reject</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for record in records %}
+                    <tr>
+                        <td>{{ record[0] }}</td>  <!-- User ID -->
+                        <td>{{ record[1] }}</td>  <!-- User Name -->
+                        <td>{{ record[2] }}</td>  <!-- Date -->
+                        <td>{{ record[3] }}</td>  <!-- Start Time -->
+                        <td>{{ record[4] }}</td>  <!-- End Time -->
+                        <td>{{ record[5] }}</td>  <!-- Working Hours -->
+                        <td>{{ record[6] }}</td>  <!-- Status -->
+                        <td>{{ record[7] }}</td>
+                        <td>
+                            <button type="button" class="btn btn-success" onclick="claim_approve('{{ record[0] }}', '{{ record[1] }}', '{{ record[2] }}', '{{ record[3] }}', '{{ record[4] }}', '{{ record[5] }}', '{{ record[6] }}', '{{ record[7] }}')">Approve</button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-danger" onclick="claim_reject('{{ record[0] }}', '{{ record[1] }}', '{{ record[2] }}', '{{ record[3] }}', '{{ record[4] }}', '{{ record[5] }}', '{{ record[6] }}', '{{ record[7] }}')">Reject</button>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <script src="../static/claimScript.js"></script>
+
+</body>
+</html>

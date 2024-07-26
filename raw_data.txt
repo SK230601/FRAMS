@@ -1,0 +1,102 @@
+# image = face_recognition.load_image_file("Raw_Dataset_Train/Abdullah_Gul.jpg")
+# image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+# # imageT = face_recognition.load_image_file("Raw_Dataset_Test/Abdullah_Gul_0001.jpg")
+# imageT = face_recognition.load_image_file("Raw_Dataset_Test/Atal_Bihari_Vajpayee_0001.jpg")
+# imageT = cv2.cvtColor(imageT, cv2.COLOR_BGR2RGB)
+
+# faceLocation = face_recognition.face_locations(image)[0]
+# encodeImage = face_recognition.face_encodings(image)[0]
+# # print(faceLocation)
+# cv2.rectangle(image,(faceLocation[3],faceLocation[0]),(faceLocation[1],faceLocation[2]),(0,255,0),2)
+
+# faceLocationT = face_recognition.face_locations(imageT)[0]
+# encodeImageT = face_recognition.face_encodings(imageT)[0]
+# cv2.rectangle(imageT,(faceLocationT[3],faceLocationT[0]),(faceLocationT[1],faceLocationT[2]),(0,255,0),2)
+
+# res = face_recognition.compare_faces([encodeImage], encodeImageT)
+# faceDistance = face_recognition.face_distance([encodeImage], encodeImageT)
+# print(res, faceDistance)
+# cv2.putText(imageT, f'{res} {round(faceDistance[0],2)}', (25, 25), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
+
+# cv2.imshow("Abdullah Gul", image)
+# cv2.imshow("Abdullah Test", imageT)
+# cv2.waitKey(0)
+
+
+
+
+
+
+    # plt.figure(figsize=(10, 6))
+    # plt.plot(dates, hours, marker='o')
+    # plt.title(f"Daily Working Hours for {name}")
+    # plt.xlabel("Date")
+    # plt.ylabel("Working Hours (hours)")
+    # plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
+    # plt.gca().xaxis.set_major_locator(mdates.DayLocator())
+    # plt.gcf().autofmt_xdate()
+    # plt.show()
+
+
+# encodingListOKI = findEncodings(images)
+# print(f'{len(encodingListOKI)} Encoding Done.') 
+
+# def markAttendances(name):
+#     with open('Attendance.csv','r+') as file:
+#         dataInFile = file.readlines()
+#         nameList = []
+#         for line in dataInFile:
+#             recordEntry = line.split(',')
+#             nameList.append(recordEntry[0])
+#         if name not in nameList:
+#             now = datetime.now()
+#             time = now.strftime('%H:%M:%S')
+#             date = now.strftime('%y-%B-%d')
+#             # file.writelines(f'\n{name},{date},{time}')
+
+
+
+plot graph 
+
+    <!-- <div>
+        <h3 class="text-center">Working Hours Graph</h3>
+        <div id="graph"></div>
+    </div>
+    <div id="graph"></div>
+    <script>
+        // Convert dates to JavaScript Date objects
+        var dates = {{ dates | tojson | safe }};
+        var hours = {{ hours | tojson | safe }};
+
+        // Use Plotly to create a line chart
+        var trace = {
+            x: dates,
+            y: hours,
+            mode: 'lines+markers',
+            type: 'scatter'
+        };
+
+        var layout = {
+            title: 'Daily Working Hours',
+            xaxis: {
+                title: 'Date'
+            },
+            yaxis: {
+                title: 'Working Hours (hours)'
+            }
+        };
+
+        Plotly.newPlot('graph', [trace], layout);
+    </script> -->
+
+    <!-- <h1>Welcome to the Dashboard</h1>
+    <p>This is the dashboard content.</p>
+    <a href="{{ url_for('main_page') }}">Go to Home</a>
+    <br>
+    <a href="{{ url_for('main_page') }}">Logout</a> -->
+
+
+
+# dates, hours = database.calculate_Working_hours(user_id, start_date, end_date)  , dates = dates, hours = hours
+
+    return render_template('dashboard.html', user_id=user_id, user_name=user_name, records = records)

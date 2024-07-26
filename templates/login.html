@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FRAMS</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+</head>
+<body>
+    <div class="NAV-Details">
+        <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <h3><b>Face Recognition Based Attendance Management System</b></h3>
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a href="{{ url_for('main_page') }}" class="btn btn-outline-info">Home</a>
+                    </li>
+                </ul>
+            </div>
+        </nav> 
+    </div>
+
+    <div class="wrapper fadeInDown zero-raduis">
+        <div id="formContent">
+
+            <div class="fadeIn first">
+                <h2 class="my-5">Sign In</h2>
+            </div>
+
+            <form action="{{ url_for('login') }}" method="post">
+
+                <label for="admin">Admin</label>
+                <input type="radio" id="admin" name="type" value="Admin">
+            
+                <label for="user">User</label>
+                <input type="radio" id="customer" name="type" value="User">
+                <br>
+            
+                <input type="text" id="username" name="username" class="fadeIn second zero-raduis" placeholder="User Id" required>
+                <br>
+
+                <div class="password-container fadeIn third zero-raduis">
+                    <input type="password" id="password" name="password" placeholder="Password" required>
+                    <span toggle="#password" class="fa fa-fw fa-eye field_icon toggle-password"></span>
+                </div>
+
+                <input type="submit" class="fadeIn fourth zero-raduis" value="Login">
+                <p>{{ error }}</p>
+            </form>
+        </div>
+    </div>
+
+    <script src="../static/togglePassScript.js"></script>
+</body>
+</html>
+
